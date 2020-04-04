@@ -1,0 +1,47 @@
+{
+  "id": "backstop",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "MySavedQuotes",
+      "url": "http://localhost:3000/",
+      "readySelector": "[data-testid=\"quotes-results-title\"]",
+      "selectors": ["document"]
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop/backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop/backstop_data/bitmaps_test",
+    "engine_scripts": "backstop/backstop_data/engine_scripts",
+    "html_report": "backstop/backstop_data/html_report",
+    "ci_report": "backstop/backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 1,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false,
+  "fileNameTemplate": "{scenarioLabel}_{selectorIndex}_{selectorLabel}_{viewportIndex}_{viewportLabel}"
+}
